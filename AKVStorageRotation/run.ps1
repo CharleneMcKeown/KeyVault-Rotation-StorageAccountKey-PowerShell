@@ -13,7 +13,7 @@ function RegenerateKey($keyId, $providerAddress){
     return $newKeyValue
 }
 
-function AddSecretToKeyVault($keyVAultName,$secretName,$newAccessKeyValue,$exprityDate,$tags){
+function AddSecretToKeyVault($keyVAultName,$secretName,$newAccessKeyValue,$expiryDate,$tags){
     
     $secretvalue = ConvertTo-SecureString "$newAccessKeyValue" -AsPlainText -Force
     Set-AzKeyVaultSecret -VaultName $keyVAultName -Name $secretName -SecretValue $secretvalue -Tag $tags -Expires $expiryDate
